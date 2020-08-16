@@ -8,6 +8,8 @@ public class MovieCriteriaMjb {
 
     private Integer minMovieStock;
 
+    private String movieStock;
+
     private Integer showHomeId;
 
     private Long start;
@@ -70,6 +72,14 @@ public class MovieCriteriaMjb {
 
     public void setDraw(Long draw) {
         this.draw = draw;
+    }
+
+    public String getMovieStock() {
+        return movieStock;
+    }
+
+    public void setMovieStock(String movieStock) {
+        this.movieStock = movieStock;
     }
 
 }
