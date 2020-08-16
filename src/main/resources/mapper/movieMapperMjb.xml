@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fh.dao.MovieDaoMjb">
+
+    <select id="selectMovieMjb" resultType="com.fh.entity.po.MovieMjb">
+        select * from t_movie
+        <include refid="criteriaSql"></include>
+        limit #{start},#{length}
+    </select>
+
+    <select id="selectCountMjb" resultType="java.lang.Long">
+        select count(*) from t_movie
+        <include refid="criteriaSql"></include>
+    </select>
+
+    <sql id="criteriaSql">
+        <where>
+            <if test="movieName!=null and movieName !=''">
+                and movieName like concat('%',#{movieName},'%')
+            </if>
+            <if test="showHomeId!=null">
+                and showHomeId = #{showHomeId}
+            </if>
+            <if test="movieStock!=null">
+                and movieStock = 0;
+            </if>
+        </where>
+    </sql>
+</mapper>
