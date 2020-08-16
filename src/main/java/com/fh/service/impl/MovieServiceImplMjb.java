@@ -27,6 +27,10 @@ public class MovieServiceImplMjb implements MovieServiceMjb {
 
         Map<String, Object> map = new HashMap<>();
         List<MovieMjb> movieMjbList = movieDaoMjb.selectMovieMjb(movieCriteriaMjb);
+        for (MovieMjb movieMjb:movieMjbList) {
+            ShowHomeMjb showHomeMjb = showHomeDaoMjbMjb.selectById(movieMjb.getShowHomeId());
+            movieMjb.setShowHomeName(showHomeMjb.getShowHomeName());
+        }
         Long count = movieDaoMjb.selectCountMjb(movieCriteriaMjb);
         map.put("draw",movieCriteriaMjb.getDraw());
         map.put("recordsFiltered",count);
@@ -40,10 +44,17 @@ public class MovieServiceImplMjb implements MovieServiceMjb {
     @Override
     @Transactional
     public void insertMovieMjb(MovieMjb movieMjb) {
-        ShowHomeMjb showHomeMjb = showHomeDaoMjbMjb.selectById(movieMjb.getShowHomeId());
-        movieMjb.setShowHomeName(showHomeMjb.getShowHomeName());
+
         movieDaoMjb.insert(movieMjb);
 
+    }
+
+    @Override
+    @Transactional
+    public void toBuy(Integer movieId) {
+        MovieMjb movieMjb = movieDaoMjb.selectById(movieId);
+        movieMjb.setMovieStock(movieMjb.getMovieStock()-1);
+        movieDaoMjb.updateById(movieMjb);
     }
 
 }

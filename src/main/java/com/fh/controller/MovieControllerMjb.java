@@ -41,4 +41,10 @@ public class MovieControllerMjb {
         return successControllerResult;
     }
 
+    @RequestMapping("toBuy")
+    public ControllerResultMjb toBuy(Integer movieId){
+        movieServiceMjb.toBuy(movieId);
+        ControllerResultMjb successControllerResult = ControllerResultMjb.getSuccessControllerResult("购票正常", null);
+        return successControllerResult;
+    }
 }

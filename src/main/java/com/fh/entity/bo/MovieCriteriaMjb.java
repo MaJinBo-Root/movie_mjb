@@ -4,7 +4,9 @@ public class MovieCriteriaMjb {
 
     private String movieName;
 
-    private Integer movieStock;
+    private Integer maxMovieStock;
+
+    private Integer minMovieStock;
 
     private Integer showHomeId;
 
@@ -22,12 +24,20 @@ public class MovieCriteriaMjb {
         this.movieName = movieName;
     }
 
-    public Integer getMovieStock() {
-        return movieStock;
+    public Integer getMaxMovieStock() {
+        return maxMovieStock;
     }
 
-    public void setMovieStock(Integer movieStock) {
-        this.movieStock = movieStock;
+    public void setMaxMovieStock(Integer maxMovieStock) {
+        this.maxMovieStock = maxMovieStock;
+    }
+
+    public Integer getMinMovieStock() {
+        return minMovieStock;
+    }
+
+    public void setMinMovieStock(Integer minMovieStock) {
+        this.minMovieStock = minMovieStock;
     }
 
     public Integer getShowHomeId() {

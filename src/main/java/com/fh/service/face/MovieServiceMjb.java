@@ -11,4 +11,5 @@ public interface MovieServiceMjb {
 
     void insertMovieMjb(MovieMjb movieMjb);
 
+    void toBuy(Integer movieId);
 }
