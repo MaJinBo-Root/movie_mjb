@@ -23,12 +23,6 @@
             <if test="showHomeId!=null">
                 and showHomeId = #{showHomeId}
             </if>
-            <!--<if test="minMovieStock!=null">
-                and movieStock <![CDATA[ > ]]> 0
-            </if>
-            <if test="maxMovieStock!=null">
-                and movieStock <![CDATA[ <= ]]> 0
-            </if>-->
             <if test="movieStock!=null">
                 and movieStock ${movieStock} 0
             </if>
