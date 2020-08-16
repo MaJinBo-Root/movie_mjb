@@ -24,8 +24,8 @@
                 and showHomeId = #{showHomeId}
             </if>
             <if test="minMovieStock!=null">
-                and movieStock <![CDATA[ > ]]> 0
-            </if>
+            and movieStock <![CDATA[ > ]]> 0
+        </if>
             <if test="maxMovieStock!=null">
                 and movieStock <![CDATA[ <= ]]> 0
             </if>
